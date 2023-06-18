@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+
+# api version is a key which is been denoted the path of the version where it will be initiated
+
+kind: Deployment
+
+# this denotes the nature of the file we are using for the purpose.
+
+metadata:
+
+  # itsa data where we can enter the values of node and pod for the deployment
+
+  name: <node name>
+
+  # name of the node
+
+  labels:
+
+    # the labels a identifier for the particular node or pod based on project name or version
+
+    app: <project or version>
+
+spec:
+
+  # a specification , settings setup for the node and pod.
+
+  replicas: 3
+
+  # replication factor, for the pod where we can clone no of pods based on the requirement
+
+  selector:
+
+    # additional details of the deployment
+
+    matchLabels:
+
+      app: < node or pod>
+
+  template:
+    # a templates resembles the  node and pod settings where we can enter the no of pods/containers need to be created
+
+    metadata:
+
+      labels:
+
+        app: < node or pod>
+
+    spec:
+      # this is for pod settings
+
+      containers:
+          # which we need to provide the container settings like location, stage, ports etc
+
+      - name: <name>
+
+        image: <image URL of container>
+
+        ports:
+
+        - containerPort: < port of container >
